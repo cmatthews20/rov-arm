@@ -1,24 +1,24 @@
 from engi1020.arduino import analog_read, servo_move, lcd_clear, lcd_print, lcd_hsv
 
 
-def grab(grabDialPin, grabServoPin):
+def grab(grab_dial_pin, grab_servo_pin):
     '''
     Changes grabbing servo angle based on primary dial position
     
     Parameters
     ----------
-    grabDialPin : Pin that dial to control grabbing servo is plugged into
-    grabServoPin : Pin that grabbing servo is plugged into
+    grab_dial_pin : Pin that dial to control grabbing servo is plugged into
+    grab_servo_pin : Pin that grabbing servo is plugged into
     
     Returns
     -------
     None.
     '''
-    dialOne=analog_read(grabDialPin)/341*60 #Converts dial position to something the servo can use
-    servo_move(grabServoPin, dialOne) #Changes servo position based on dial
+    dial_one=analog_read(grab_dial_pin)/341*60 #Converts dial position to something the servo can use
+    servo_move(grab_servo_pin, dial_one) #Changes servo position based on dial
 
 
-def pivot(pivotDialPin, pivotServoPin):
+def pivot(pivot_dial_pin, pivot_servo_pin):
     '''
     Changes pivoting servo angle based on secondary dial position. 
     Prints position of pivoting arm as a percent and changes the backlight 
@@ -27,16 +27,16 @@ def pivot(pivotDialPin, pivotServoPin):
     
     Parameters
     ----------
-    pivotDialPin : Pin that dial to control pivoting servo is plugged into
-    pivotServoPin : Pin that pivoting servo is plugged into
+    pivot_dial_pin : Pin that dial to control pivoting servo is plugged into
+    pivot_servo_pin : Pin that pivoting servo is plugged into
     
     Returns
     -------
     None.
     '''
-    dialTwo=analog_read(pivotDialPin)/341*60
-    servo_move(pivotServoPin, dialTwo)
+    dial_two=analog_read(pivot_dial_pin)/341*60
+    servo_move(pivot_servo_pin, dial_two)
     lcd_clear()
-    lcd_print(dialTwo/1.8)
-    colorIndicator=analog_read(pivotDialPin)/1023
-    lcd_hsv(colorIndicator,0.6,100)
+    lcd_print(dial_two/1.8)
+    color_indicator=analog_read(pivot_dial_pin)/1023
+    lcd_hsv(color_indicator,0.6,100)

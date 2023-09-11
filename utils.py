@@ -1,32 +1,32 @@
 from time import time
 
 
-def timeActive(startTime):
+def time_active(start_time):
     '''
     Prints how long the claw program has been active.
 
     Parameters
     ----------
-    startTime : Time when program started
+    start_time : Time when program started
     
     Returns
     -------
     None.
     '''
-    timeNow=time()
-    activeTime=timeNow-startTime
-    print("Program was active for", activeTime, "seconds.")
+    time_now=time()
+    active_time=time_now-start_time
+    print("Program was active for", active_time, "seconds.")
 
 
-def listAverage(positionList, sumList):
+def list_avg(position_list, sum_list):
     '''
     This function will print the average claw position as percent.
     
     Parameters
     ----------
-    positionList : List of claw position samples taken every loop of main
+    position_list : List of claw position samples taken every loop of main
     code block.
-    sumList : The sum of the samples taken every loop of main
+    sum_list : The sum of the samples taken every loop of main
     code block.
 
     Returns
@@ -34,5 +34,5 @@ def listAverage(positionList, sumList):
     None.
 
     '''
-    clawAverage = sumList/len(positionList) # calculate average.
-    print("Average claw position is", clawAverage, "percent.") # print average.
+    claw_avg = sum_list/len(position_list) # calculate average.
+    print("Average claw position is", claw_avg, "percent.") # print average.
